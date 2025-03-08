@@ -12,5 +12,107 @@
 }
 .paragraph{
     text-align: justify;
-    line-height: 30px;
+    line-height: 35px;
 }
+#container, #container-shadow {
+    position: absolute;
+    top: calc(50% - 300px);
+    right: calc(50% - 300px);
+    animation: dash0 1.5s ease;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+    transform: rotate(0deg);
+  }
+  #container-shadow {
+    top: calc(50% - 300px);
+    left: calc(50% - 90px);
+    z-index: -2;
+  }
+  .container-run {
+    top: 10px;
+  }
+  @keyframes dash0 {
+    0% {transform: rotate(0deg) scale(1)}
+    35% {transform: rotate(10deg) scale(1.1)}
+    50% {transform: rotate(10deg) scale(1.1)}  
+    60% {transform: rotate(10deg) scale(1)}
+    65% {transform: rotate(-5deg) scale(1)}
+    80% {transform: rotate(5deg) scale(1)}
+    100% {transform: rotate(0deg) scale(1)} 
+  }
+  .circles, .circles-shadow {
+    position: absolute;  
+    fill: none;
+    stroke: #fff;  
+    stroke-linecap: round;
+    stroke-dashoffset: 820;
+    stroke-dasharray: 820;
+  }
+  .circles-shadow {
+    stroke: #8b8b8b;
+  }
+  
+  @keyframes dash1 {
+    from {stroke-dashoffset: -820;}
+    to {stroke-dashoffset: 0;}
+  }
+  
+  .el1 {
+    top: 80px;
+    left: 40px;
+    stroke-width: 8;
+    fill: #0d6efd;
+    animation: dash1 3s ease;
+    animation-fill-mode: forwards;
+  }
+  .el2 {
+    top: 130px;
+    left: 80px;
+    stroke-width: 5;
+    animation: dash1 3s ease;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  .el3-box {
+    top: 0px;
+    position: absolute; 
+    animation: dash2 1s ease;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes dash2 {
+    0% {top: 0}
+    80% {top: -10px}
+    100% {top: 30px;} 
+  }
+  .el3 {
+    top: 0px;
+    left: 46px;
+    stroke-width: 10;
+    transform: scale(0.8);
+    z-index: -1;
+    animation: dash1 3s ease;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards; 
+  }
+  .el4 {
+    top: 155px;
+    left: 95px;
+    stroke-width: 6;
+    animation: dash1 3s ease;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  #link {
+    bottom: 20px;
+    color: #000;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #link p {font-size: 20px; margin: 0; margin-left: 5px;}
+  #link:hover {opacity: 1;}
