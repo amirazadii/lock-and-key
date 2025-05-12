@@ -1,118 +1,208 @@
-#darbarema{
-    background-color: #0d6efd;
-    border-radius: 25px;
-    padding: 20px;
+.logo {
+    float: right;
 }
-.Text{
-    color: #fff;
-    font-weight: 800;
-    text-align: right;
-    margin: 20px;
-    margin-bottom: 40px;
-}
-.paragraph{
-    text-align: justify;
-    line-height: 35px;
-}
-#container, #container-shadow {
-    position: absolute;
-    top: calc(50% - 300px);
-    right: calc(50% - 300px);
-    animation: dash0 1.5s ease;
-    animation-delay: 3.5s;
-    animation-fill-mode: forwards;
-    transform: rotate(0deg);
-  }
-  #container-shadow {
-    top: calc(50% - 300px);
-    left: calc(50% - 90px);
-    z-index: -2;
-  }
-  .container-run {
-    top: 10px;
-  }
-  @keyframes dash0 {
-    0% {transform: rotate(0deg) scale(1)}
-    35% {transform: rotate(10deg) scale(1.1)}
-    50% {transform: rotate(10deg) scale(1.1)}  
-    60% {transform: rotate(10deg) scale(1)}
-    65% {transform: rotate(-5deg) scale(1)}
-    80% {transform: rotate(5deg) scale(1)}
-    100% {transform: rotate(0deg) scale(1)} 
-  }
-  .circles, .circles-shadow {
-    position: absolute;  
-    fill: none;
-    stroke: #fff;  
-    stroke-linecap: round;
-    stroke-dashoffset: 820;
-    stroke-dasharray: 820;
-  }
-  .circles-shadow {
-    stroke: #8b8b8b;
-  }
-  
-  @keyframes dash1 {
-    from {stroke-dashoffset: -820;}
-    to {stroke-dashoffset: 0;}
-  }
-  
-  .el1 {
-    top: 80px;
-    left: 40px;
-    stroke-width: 8;
-    fill: #0d6efd;
-    animation: dash1 3s ease;
-    animation-fill-mode: forwards;
-  }
-  .el2 {
-    top: 130px;
-    left: 80px;
-    stroke-width: 5;
-    animation: dash1 3s ease;
-    animation-delay: 0.2s;
-    animation-fill-mode: forwards;
-  }
-  .el3-box {
-    top: 0px;
-    position: absolute; 
-    animation: dash2 1s ease;
-    animation-delay: 3.5s;
-    animation-fill-mode: forwards;
-  }
-  @keyframes dash2 {
-    0% {top: 0}
-    80% {top: -10px}
-    100% {top: 30px;} 
-  }
-  .el3 {
-    top: 0px;
-    left: 46px;
-    stroke-width: 10;
-    transform: scale(0.8);
-    z-index: -1;
-    animation: dash1 3s ease;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards; 
-  }
-  .el4 {
-    top: 155px;
-    left: 95px;
-    stroke-width: 6;
-    animation: dash1 3s ease;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-  }
-  
-  #link {
-    bottom: 20px;
-    color: #000;
-    opacity: 0.6;
+
+/* From Uiverse.io by gharsh11032000 */
+.card {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 400px;
+    border-radius: 24px;
+    line-height: 1.6;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    margin: 10px;
+    background: #fff4b7;
+}
+
+.card2 {
+    text-align: center;
+    padding: 20px !important;
+    border-radius: 20px;
+    background-color: #006A67;
+    color: #FFF4B7;
+    width: 100%;
+    height: 200px;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 36px;
+    border-radius: 22px;
+    color: #006A67;
+    overflow: hidden;
+    background: #FFF4B7;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content::before {
     position: absolute;
+    content: "";
+    top: -4%;
     left: 50%;
-    transform: translateX(-50%);
-  }
-  #link p {font-size: 20px; margin: 0; margin-left: 5px;}
-  #link:hover {opacity: 1;}
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%);
+    background: #006a6760;
+    z-index: -1;
+    transform-origin: bottom;
+
+    border-radius: inherit;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content::after {
+    position: absolute;
+    content: "";
+    top: -8%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%);
+    background: #006a67d3;
+    z-index: -2;
+    transform-origin: bottom;
+    border-radius: inherit;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content svg {
+    width: 48px;
+    height: 48px;
+}
+
+.content .para {
+    z-index: 1;
+    opacity: 1;
+    font-size: 18px;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .link {
+    z-index: 1;
+    color: #fea000;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .link:hover {
+    text-decoration: underline;
+}
+
+.card:hover {
+    transform: translate(0px, -16px);
+}
+
+.card:hover .content::before {
+    rotate: -8deg;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card:hover .content::after {
+    rotate: 8deg;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-holder>p {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 2rem;
+}
+
+.img-first {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.img-text {
+    background-color: #FFF4B7 !important;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.cart-text {
+    color: #006A67;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.header-cart {
+    color: #006A67;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.cart-text li {
+    color: #006A67 !important;
+    text-align: justify !important;
+}
+
+.service-ul {
+    text-align: justify !important;
+    color: #006A67 !important;
+    line-height: 40px;
+}
+
+/* From Uiverse.io by alexroumi */
+.btn11 {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #FFF4B7;
+    z-index: 1;
+    background: #006A67;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+    width: 40%;
+}
+
+.btn11::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.btn11:hover {
+    color: #e8e8e8;
+}
+
+.btn11:hover::before {
+    width: 100%;
+}
+
+.btn1 {
+    margin-top: 30px !important;
+    text-align: justify;
+}
+
+iframe {
+    border-radius: 20px !important;
+}

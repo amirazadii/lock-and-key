@@ -1,110 +1,416 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>قفل و کلید سازی</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media/fonts/yekan.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمات کلیدسازی</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="./media/fonts/yekan.css">
+  <link rel="stylesheet" href="./lock-style.css">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      background: rgb(1, 0, 56);
+      background: linear-gradient(90deg, #000B58 0%, #003161 35%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .icon {
+      font-size: 80px;
+      color: yellow;
+      margin-bottom: 20px;
+    }
+
+    .btn-custom {
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    section {
+      margin-block: 80px;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    header,
+    footer {
+      padding: 20px;
+    }
+
+    .bg-body-tertiary {
+      /* From https://css.glass */
+      background: #003161 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+      backdrop-filter: blur(8.4px) !important;
+      -webkit-backdrop-filter: blur(8.4px) !important;
+      padding: 20px;
+
+      & button {
+        color: aliceblue;
+      }
+    }
+
+    .navbar-nav {
+      gap: 2rem !important;
+      display: flex;
+    }
+
+    .nav-item {
+      border-radius: 20px;
+      padding-inline: 10px;
+      font-weight: 900;
+      align-self: center;
+
+      & a {
+        color: aliceblue !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- navigation top bar button -->
-    <div class="container mt-2">
-        <div class="row">
-            <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2"
-                role="tablist"
-                style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab"
-                        aria-selected="true"> آدرس و شماره تماس <i class="fa fa-phone-square"></i> </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab"
-                        aria-selected="false">خدمات ما <i class="fa fa-lock"></i></button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button"
-                        role="tab" aria-selected="false">درباره ما <i class="fa fa-key"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- سکشن درباره ما  -->
-    <div class="container mt-2" id="darbarema">
-        <div class="row">
-            <!-- lock animated for first section -->
-            <div class="col-md-6">
-                <div id="container">  
-                    <svg class="circles el1" height="120" width="120">
-                      <circle cx="60" cy="60" r="50"/> 
-                    </svg>
-                    <svg class="circles el2" height="40" width="40">
-                      <circle cx="20" cy="20" r="14"/> 
-                    </svg>  
-                    <div class="el3-box">
-                      <svg class="circles el3" x="0px" y="0px" width="120px" height="150px">
-                        <path class="st0" d="M5,80v-30v2c0-25.4,20.6-46,46-46s46,20.6,46,46v-2v80"/>
-                      </svg> 
-                    </div>  
-                    <svg class="circles el4" x="0px" y="0px" width="10px" height="50px">
-                      <line x1="5" y1="10" x2="5" y2="35"/>
-                    </svg>  
-                  </div>
-                  <div id="container-shadow">  
-                    <svg class="circles-shadow el1" height="120" width="120">
-                      <circle cx="60" cy="60" r="50"/> 
-                    </svg>
-                    <svg class="circles-shadow el2" height="40" width="40">
-                      <circle cx="20" cy="20" r="14"/> 
-                    </svg>  
-                    <div class="el3-box">
-                      <svg class="circles-shadow el3" x="0px" y="0px" width="120px" height="150px">
-                        <path class="st0" d="M5,80v-30v2c0-25.4,20.6-46,46-46s46,20.6,46,46v-2v80"/>
-                      </svg> 
-                    </div>  
-                    <svg class="circles-shadow el4" x="0px" y="0px" width="10px" height="50px">
-                      <line x1="5" y1="10" x2="5" y2="35"/>
-                    </svg>  
-                  </div>
-            </div>
-            <div class="col-md-6">
-                <div class="Text">
-                    <h2>قفل و کلید سازی مش هاشم <i class="fa fa-key"></i></h2>
-                    <p class="paragraph">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
-                        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این
-                        صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
-                        زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
-                        اساسا مورد استفاده قرار گیرد.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- سکشن سوم لیست مشتریان -->
-    <div class="container">
-        <div class="row">
-            <div class="my_costumer">
 
+  <header class="text-center">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarCenteredExample"
+          aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+          <!-- Left links -->
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M2.63303 16H21.367C21.4471 15.2813 21.5232 14.4732 21.609 13.5616L21.8382 11.1263C22.0182 9.2137 22.1082 8.25739 21.781 7.86207C21.604 7.64823 21.3633 7.5172 21.106 7.4946C20.6303 7.45282 20.0329 8.1329 18.8381 9.49307C18.2202 10.1965 17.9113 10.5482 17.5666 10.6027C17.3757 10.6328 17.1811 10.6018 17.0047 10.5131C16.6865 10.3529 16.4743 9.91812 16.0499 9.04851L13.8131 4.46485C13.0112 2.82162 12.6102 2 12 2C11.3898 2 10.9888 2.82162 10.1869 4.46485L7.95007 9.04852C7.5257 9.91811 7.31351 10.3529 6.99526 10.5131C6.81892 10.6018 6.62434 10.6328 6.43337 10.6027C6.08872 10.5482 5.77977 10.1965 5.16187 9.49307C3.96708 8.1329 3.36968 7.45282 2.89399 7.4946C2.63666 7.5172 2.39598 7.64823 2.21899 7.86207C1.8918 8.25739 1.9818 9.2137 2.16181 11.1263L2.391 13.5616C2.4768 14.4732 2.55286 15.2813 2.63303 16Z"
+                      fill="#f5f5f5"></path>
+                    <path
+                      d="M13.3597 22C16.9046 22 18.6771 22 19.8597 20.7902C20.7736 19.8553 21.094 18.4447 21.3667 16H2.63281C2.90553 18.4447 3.22594 19.8553 4.13987 20.7902C5.32249 22 7.09495 22 10.6399 22H13.3597Z"
+                      fill="#f5f5f5"></path>
+                  </g>
+                </svg>
+                درباره ما
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path opacity="0.5"
+                      d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
+                      fill="#f5f5f5"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M18 9.77606C18 11.8615 16.3025 13.5521 14.2084 13.5521C13.8264 13.5521 12.9564 13.4643 12.5331 13.113L12.004 13.64C11.693 13.9498 11.777 14.041 11.9153 14.1912C11.9731 14.2539 12.0403 14.3269 12.0922 14.4303C12.0922 14.4303 12.5331 15.045 12.0922 15.6597C11.8277 16.011 11.087 16.5027 10.2405 15.6597L10.0642 15.8353C10.0642 15.8353 10.5932 16.45 10.1523 17.0647C9.88782 17.416 9.18242 17.7673 8.56519 17.1526L7.94796 17.7673C7.52471 18.1888 7.00743 17.9429 6.8017 17.7673L6.27264 17.2404C5.77886 16.7486 6.0669 16.2159 6.27264 16.011L10.8578 11.4446C10.8578 11.4446 10.4169 10.742 10.4169 9.77606C10.4169 7.6906 12.1144 6 14.2084 6C16.3025 6 18 7.6906 18 9.77606ZM14.2084 11.0932C14.9388 11.0932 15.531 10.5035 15.531 9.77597C15.531 9.04848 14.9388 8.45874 14.2084 8.45874C13.4779 8.45874 12.8857 9.04848 12.8857 9.77597C12.8857 10.5035 13.4779 11.0932 14.2084 11.0932Z"
+                      fill="#f5f5f5"></path>
+                  </g>
+                </svg>
+                خدمات ما
+              </a>
+            </li>
+            <div class="logo">
+              <img src="./media/fonts/image/shahkey.png" alt="shahkelid" srcset="">
             </div>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M22 7C22 9.76142 19.7614 12 17 12C16.2002 12 15.4442 11.8122 14.7738 11.4783C14.5956 11.3895 14.392 11.36 14.1997 11.4114L13.0867 11.7092C12.6035 11.8385 12.1615 11.3965 12.2908 10.9133L12.5886 9.80031C12.64 9.60803 12.6105 9.4044 12.5217 9.22624C12.1878 8.55582 12 7.79984 12 7C12 4.23858 14.2386 2 17 2C19.7614 2 22 4.23858 22 7ZM17 4.8125C17.5178 4.8125 17.9375 5.23223 17.9375 5.75V6.0625H18.25C18.7678 6.0625 19.1875 6.48223 19.1875 7C19.1875 7.51777 18.7678 7.9375 18.25 7.9375H17.9375V8.25C17.9375 8.76777 17.5178 9.1875 17 9.1875C16.4822 9.1875 16.0625 8.76777 16.0625 8.25V7.9375H15.75C15.2322 7.9375 14.8125 7.51777 14.8125 7C14.8125 6.48223 15.2322 6.0625 15.75 6.0625H16.0625V5.75C16.0625 5.23223 16.4822 4.8125 17 4.8125Z"
+                      fill="#f2f2f2"></path>
+                    <path opacity="0.5"
+                      d="M8.03759 7.31617L8.6866 8.4791C9.2723 9.52858 9.03718 10.9053 8.11471 11.8278C8.11471 11.8278 8.11471 11.8278 8.11471 11.8278C8.11459 11.8279 6.99588 12.9468 9.02451 14.9755C11.0525 17.0035 12.1714 15.8861 12.1722 15.8853C12.1722 15.8853 12.1722 15.8853 12.1722 15.8853C13.0947 14.9628 14.4714 14.7277 15.5209 15.3134L16.6838 15.9624C18.2686 16.8468 18.4557 19.0692 17.0628 20.4622C16.2258 21.2992 15.2004 21.9505 14.0669 21.9934C12.1588 22.0658 8.91828 21.5829 5.6677 18.3323C2.41713 15.0817 1.93421 11.8412 2.00655 9.93309C2.04952 8.7996 2.7008 7.77423 3.53781 6.93723C4.93076 5.54428 7.15317 5.73144 8.03759 7.31617Z"
+                      fill="#f2f2f2"></path>
+                  </g>
+                </svg>
+                تماس با ما
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12 2C16.714 2 19.0711 2 20.5355 3.46447C21.0394 3.96833 21.3699 4.57786 21.5867 5.3527L5.3527 21.5867C4.57786 21.3699 3.96833 21.0394 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2ZM5.5 8.75732C5.5 10.5422 6.61708 12.625 8.35997 13.3698C8.76626 13.5434 9.23374 13.5434 9.64003 13.3698C11.3829 12.625 12.5 10.5422 12.5 8.75732C12.5 6.95835 10.933 5.5 9 5.5C7.067 5.5 5.5 6.95835 5.5 8.75732Z"
+                      fill="#f2f2f2"></path>
+                    <path
+                      d="M10.5 9C10.5 9.82843 9.82843 10.5 9 10.5C8.17157 10.5 7.5 9.82843 7.5 9C7.5 8.17157 8.17157 7.5 9 7.5C9.82843 7.5 10.5 8.17157 10.5 9Z"
+                      fill="#f2f2f2"></path>
+                    <g opacity="0.5">
+                      <path
+                        d="M21.8893 7.17188C22.0002 8.43338 22.0002 10.0059 22.0002 12.0002C22.0002 16.1339 22.0002 18.4552 21.0128 19.9515L15.0613 14L21.8893 7.17188Z"
+                        fill="#f2f2f2"></path>
+                      <path
+                        d="M19.9523 21.0123L14.0006 15.0607L7.17188 21.8893C8.43338 22.0002 10.0059 22.0002 12.0002 22.0002C16.1346 22.0002 18.4559 22.0002 19.9523 21.0123Z"
+                        fill="#f2f2f2"></path>
+                    </g>
+                  </g>
+                </svg>
+                آدرس ما
+              </a>
+            </li>
+            <!-- Navbar dropdown -->
+          </ul>
+          <!-- Left links -->
         </div>
+        <!-- Collapsible wrapper -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+  </header>
+
+  <section class="text-holder"
+    style="display: flex; text-align: center ; justify-content: center; align-self: center; align-items: center;flex-direction: column;margin-top: 2rem;">
+    <h1>شاه کلید<br><span>شعبه</span> <span>مرکزی</span></h1>
+    <div class="mt-4">
+      <ul style="display: flex;flex-direction: column; justify-content: flex-start; padding: 0;">
+        <li>ارائه تمامی خدمات مربوط به کلید سازی</li>
+        <br>
+        <li> نصب قفل های امنیتی، بازکردن انواع درب</li>
+        <br>
+        <li>ساخت انواع سوئیچ ماشین و ریموت</li>
+      </ul>
     </div>
-    <!-- cdn bootstrap and jquery -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
-        </script>
+    <div class="padlock">
+      <div class="keyhole"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="row" style="justify-content: center !important;">
+        <div class="col-sm-12 col-md-6 col-lg-3" style="display: flex; justify-content: center;">
+          <div class="card">
+            <div class="content">
+              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 9V5H4V9H20ZM20 11H4V19H20V11ZM3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM5 12H8V17H5V12ZM5 6H7V8H5V6ZM9 6H11V8H9V6Z">
+                </path>
+              </svg>
+              <p class="para">
+              <p>خدمات کلید سازی شبانه روزی در کرج</p>
+              ما خدمات کلیدسازی سیار شبانه‌روزی را در تمامی مناطق کرج از جمله فردیس، عظیمیه، مهرشهر، محمدشهر، مشکین دشت،
+              حصارک و... ارائه می‌دهیم. به کمک ابزارهای پیشرفته و با تیم حرفه‌ای آماده پاسخگویی به تمام نیازهای شما از
+              جمله باز کردن انواع قفل‌ها و نصب قفل‌های دیجیتال و امنیتی هستیم
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3" style="display: flex; justify-content: center;">
+          <div class="card">
+            <div class="content">
+              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 9V5H4V9H20ZM20 11H4V19H20V11ZM3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM5 12H8V17H5V12ZM5 6H7V8H5V6ZM9 6H11V8H9V6Z">
+                </path>
+              </svg>
+              <p class="para">
+              <p>نصب قفل های دیجیتال</p>
+              با استفاده از پیشرفته‌ترین ابزارها، قفل‌های دیجیتال با امنیت بالا برای منزل یا محل کار شما نصب می‌کنیم.
+              این قفل‌ها امکان کنترل از راه دور، ثبت ورود و خروج و امنیت بیشتر را برای شما فراهم می‌کنند. نصب این قفل‌ها
+              به صورت شبانه‌روزی و در تمامی مناطق کرج انجام می‌شود
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3" style="display: flex; justify-content: center;">
+          <div class="card">
+            <div class="content">
+              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 9V5H4V9H20ZM20 11H4V19H20V11ZM3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM5 12H8V17H5V12ZM5 6H7V8H5V6ZM9 6H11V8H9V6Z">
+                </path>
+              </svg>
+              <p class="para">
+              <p>ساخت سوئیچ ماشین و ریموت</p>
+              خدمات ساخت سوئیچ ماشین و ریموت با استفاده از بهترین دستگاه‌ها و تکنولوژی روز دنیا به شما ارائه می‌دهیم.
+              این خدمات شامل ساخت سوئیچ‌های تخصصی و ریموت‌های اتومبیل برای انواع مدل‌ها و برندها می‌باشد. همچنین در
+              صورتی که ریموت شما خراب شده باشد، ما توانایی تعمیر آن را نیز داریم
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3" style="display: flex; justify-content: center;">
+          <div class="card">
+            <div class="content">
+              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 9V5H4V9H20ZM20 11H4V19H20V11ZM3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM5 12H8V17H5V12ZM5 6H7V8H5V6ZM9 6H11V8H9V6Z">
+                </path>
+              </svg>
+              <p class="para">
+              <p>نصب جک پارکینگ و سیستم دزدگیر</p>
+              <p>نصب جک پارکینگ و سیستم‌های امنیتی دزدگیر برای حفاظت از ملک شما به صورت تخصصی انجام می‌شود. ما
+                سیستم‌هایی با قابلیت‌های ویژه همچون شناسایی حرکات و نظارت بر از راه دور نصب می‌کنیم تا شما با خیال راحت
+                و بدون نگرانی از امنیت خانه یا محل کار خود باشید. این خدمات نیز به صورت سیار و در تمام کرج ارائه می‌شود
+              </p>
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="home" class="section">
+    <div class="container-fluid img-text">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <img class="img-fluid img-first" src="./media/fonts/image/ChatGPT Image Apr 15, 2025, 01_31_07 PM.png" alt=""
+            srcset="">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-9">
+          ‌<h2 class="header-cart">خدمات کلید سازی و امنیت شبانه‌روزی در کرج</h2>
+          <p class="cart-text">
+            مجموعه شاه کلید با بهره‌گیری از تجربه و تخصص فراوان، خدمات کلید سازی، امنیت و ایمن‌سازی را در سطحی حرفه‌ای
+            به شما ارائه می‌دهد.
+            <br>
+            ما در مجموعه شاه کلید از ابزارهای پیشرفته و به روز دنیا استفاده می‌کنیم تا کیفیت خدمات
+            خود را به حداکثر برسانیم.
+            <br>
+            خدمات ما شامل :
+          <div>
+            <ul class="service-ul">
+              <li>نصب قفل‌های دیجیتال،</li>
+              <li>باز کردن انواع درب،</li>
+              <li>ساخت سوئیچ ماشین و ریموت،</li>
+              <li>نصب و تعمیر جک پارکینگ، نصب</li>
+              <li>دوربین مداربسته و سیستم‌های دزدگیر و بسیاری دیگر از خدمات ایمن‌سازی می‌باشد</li>
+            </ul>
+          </div>
+          </p>
+          <div class="btn1 mt-6">
+            <!-- From Uiverse.io by alexroumi -->
+            <button class="btn11" onclick="window.location.href='tel:09128724743'"> تماس با ما
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="about" class="section">
+    <h2 style="font-size: 30px ; font-weight: bold;">درباره ما</h2>
+    <p style="line-height: 40px;">
+      مجموعه شاه کلید با سال‌ها تجربه و تخصص در زمینه‌ی کلیدسازی و ایمن‌سازی، خدمات متنوع و حرفه‌ای در این حوزه را به
+      شما ارائه می‌دهد
+      <br>
+      ما در مجموعه شاه کلید با استفاده از ابزارهای پیشرفته و به‌روز دنیا، کیفیت بالای خدمات خود را تضمین می‌کنیم و
+      همواره در تلاش هستیم تا در خدمات کلیدسازی بهترین تجربه را برای شما فراهم آوریم.
+    </p>
+
+    <h2 style="font-size: 30px ; font-weight: bold; margin-top: 30px;">چرا انتخاب مجموعه شاه کلید؟</h2>
+
+    <p style="line-height: 40px;">
+      اعتماد مشتریان: تجربه و تخصص بالا در ارائه خدمات ایمن‌سازی منزل و محل کار.
+      <br>
+      دسترسی سریع: خدمات سیار در تمام نقاط کرج، بدون محدودیت زمانی یا مکانی.
+      <br>
+      پشتیبانی 24 ساعته: در هر زمان از شبانه‌روز آماده خدمت‌رسانی به شما هستیم.
+      <br>
+      کاهش هزینه‌ها: ارائه خدمات با قیمت‌های رقابتی و مقرون به صرفه.
+    </p>
+  </section>
+
+  <section id="services" class="section">
+    <h2 style="font-size: 30px ; font-weight: bold;">خدمات ما</h2>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <div class="card2 text-center p-3">
+            <i class="fa-solid fa-lock fa-3x mb-3"></i>
+            <h4>نصب قفل‌های امنیتی</h4>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card2 text-center p-3">
+            <i class="fa-solid fa-key fa-3x mb-3"></i>
+            <h4>کپی و ساخت کلید</h4>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card2 text-center p-3">
+            <i class="fa-solid fa-unlock fa-3x mb-3"></i>
+            <h4>بازگشایی قفل‌ها</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container-fluid">
+      <h2 style="font-size: 30px ; font-weight: bold;">آدرس ما </h2>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <iframe src="https://balad.ir/embed?p=5hhU3vNsRWSXoT"
+            title="مشاهده «کلید سازی شاه کلید شعبه مرکزی» روی نقشه بلد" width="600" height="450" frameborder="0"
+            style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <iframe title="map-iframe"
+            src="https://neshan.org/maps/iframe/places/6b53ec0aada2aa3895dead8559e3cbee#c35.773-51.061-11z-0p/35.7726085/50.9773235"
+            width="600" height="450" allowFullScreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center">
+    <p>تمامی حقوق برای شاه کلید محفوظ است &copy; 2025</p>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from("header", { opacity: 0, y: -50, duration: 1 });
+    gsap.from(".icon", { opacity: 0, scale: 0, duration: 1.5 });;
+    gsap.from("#testimonials", {
+      opacity: 0,
+      y: 50,
+      duration: 1.5,
+      scrollTrigger: {
+        trigger: "#testimonials",
+        start: "top 80%"
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"
+    integrity="sha256-9zljDKpE/mQxmaR4V2cGVaQ7arF3CcXxarvgr7Sj8Uc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="./script/script.js"></script>
 </body>
 
 </html>
